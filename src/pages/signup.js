@@ -58,9 +58,9 @@ class Signup extends Component {
             <TextField id="password" name="password" type="password" label="Contraseña" className={classes.textField} helperText={errors.password} error={errors.password ? true:false}
             value={this.state.password} onChange={this.handleChange} fullWidth/>
             <TextField id="confirmPassword" name="confirmPassword" type="password" label="Confirma Contraseña" className={classes.textField} helperText={errors.confirmPassword} error={errors.confirmPassword ? true:false}
-            value={this.state.password} onChange={this.handleChange} fullWidth/>
-            <TextField id="handle" name="handle" type="text" label="Ingrese correo" className={classes.textField} helperText={errors.handle} error={errors.handle ? true:false}
-            value={this.state.email} onChange={this.handleChange} fullWidth/>
+            value={this.state.confirmPassword} onChange={this.handleChange} fullWidth/>
+            <TextField id="handle" name="handle" type="text" label="Ingrese usuario" className={classes.textField} helperText={errors.handle} error={errors.handle ? true:false}
+            value={this.state.handle} onChange={this.handleChange} fullWidth/>
             {errors.error && (
               <Typography variant="body2" className={classes.customError}>
                 {errors.error}

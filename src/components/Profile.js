@@ -28,7 +28,9 @@ const styles = (customTheme)=>({
  class Profile extends Component {
     render() {
         const { classes, user: { credentials: {handle, createdAt,imageUrl, bio, website, location}, loading, authenticated}} = this.props;
-        let profileMarkup = (!loading) ? ((authenticated ? (
+        console.log(this.props);
+        let profileMarkup = !loading ? ((authenticated ? (
+            
             <Paper className={classes.paper}>
                 <div className={classes.paper}>
                     <div className="image-wrapper">
