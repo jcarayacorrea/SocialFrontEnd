@@ -10,19 +10,20 @@ const initialState = {
 };
 
 export default function(state= initialState, action){
-    switch(action.state){
+    switch(action.type){
         case SET_AUTHENTICATED:
-            return {
+            return  {
                 ...state,
-                authenticated: true
+                authenticated: true      
             };
         case SET_UNAUTHENTICATED:
             return initialState;
         case SET_USER:
             return {
+                ...state,
+                ...action.payload,
                 authenticated : true,
-                loading:false,
-                ...action.payload
+                loading:false    
             };
         case LOADING_USER:
             return {

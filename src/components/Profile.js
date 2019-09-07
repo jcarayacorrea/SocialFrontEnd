@@ -29,7 +29,7 @@ const styles = (customTheme)=>({
     render() {
         const { classes, user: { credentials: {handle, createdAt,imageUrl, bio, website, location}, loading, authenticated}} = this.props;
         console.log(this.props);
-        let profileMarkup = !loading ? ((authenticated ? (
+        let profileMarkup = loading ? ((authenticated ? (
             
             <Paper className={classes.paper}>
                 <div className={classes.paper}>
