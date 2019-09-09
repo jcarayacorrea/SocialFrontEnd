@@ -20,7 +20,7 @@ import dayjs from 'dayjs';
 import ProfileButton from '../utils/ProfileButton';
 
 const styles = (customTheme)=>({
-    ...customTheme.toSprend,
+    ...customTheme.toSpread,
     button:{
         float: 'right'
     }
@@ -29,15 +29,15 @@ const styles = (customTheme)=>({
     render() {
         const { classes, user: { credentials: {handle, createdAt,imageUrl, bio, website, location}, loading, authenticated}} = this.props;
         console.log(this.props);
-        let profileMarkup = loading ? ((authenticated ? (
+        let profileMarkup = !loading ? ((authenticated ? (
             
             <Paper className={classes.paper}>
-                <div className={classes.paper}>
+                <div className={classes.profile}>
                     <div className="image-wrapper">
                         <img src={imageUrl} alt="profile" className="profile-image"/>
                         <input type="file" id="imageInput" onChange={this.handleImageChange} hidden="hidden"/>
                         
-                        <ProfileButton tip="Editar imagen del perfil" onClick={this.handleImageChange} btnClassName="button">
+                        <ProfileButton tip="Editar imagen del perfil" onClick={this.handleEditPicture} btnClassName="button">
                             <EditIcon color="primary"/>
                         </ProfileButton>
                     </div>
@@ -92,13 +92,14 @@ const styles = (customTheme)=>({
         return profileMarkup;
     }
     handleImageChange = (event) => {
+        console.log(event);
         const image = event.target.files[0];
         const formData = new FormData();
         formData.append('image', image, image.name);
         this.props.uploadImage(formData);
 
     }
-    hanleEditPicture = () =>{
+    handleEditPicture = () =>{
         const fileInput = document.getElementById('imageInput');
         fileInput.click();
     }
