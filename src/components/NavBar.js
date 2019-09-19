@@ -14,6 +14,7 @@ import Notifications from '@material-ui/icons/Notifications';
 
 //redux
 import {connect} from 'react-redux';
+import Comentario from "./Comentario";
 
 
 
@@ -26,9 +27,7 @@ export class NavBar extends Component {
                 <Toolbar className="nav-container">
                     {authenticated ? (
                         <Fragment>
-                            <ProfileButton tip="Escribe algo....">
-                                <AddIcon color="primary"/>
-                            </ProfileButton>
+                            <Comentario/>
                             <Link to="/">
                             <ProfileButton tip="Inicio">
                                 <HomeIcon color="primary"/>

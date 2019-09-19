@@ -109,7 +109,8 @@ const styles = (customTheme)=>({
 }
 
 const mapStateToProps = (state) =>({
-    user: state.user
+    user: state.user,
+    UI: state.UI
 })
 
 const mapActionsToProps = { logoutUser, uploadImage};

@@ -19,7 +19,7 @@ import CloseIcon from '@material-ui/icons/Close';
 
 //Redux
 import {connect } from 'react-redux';
-import { editUserDetails } from '../redux/actions/userActions';
+import { postScream } from '../redux/actions/dataActions';
 import { mergeClasses } from '@material-ui/styles';
 
 const styles = (customTheme) => ({
@@ -35,26 +35,27 @@ const styles = (customTheme) => ({
         left:'90%',
         top:'10%'
     }
-})
+});
 
  class Comentario extends Component {
      state = {
          open: false,
          body:'',
          errors:{}
-     }
+     };
      componentWillReceiveProps(nextProps){
+         console.log(nextProps);
          if(nextProps.UI.errors){
              this.setState({errors:nextProps.UI.errors});
          }
          if((!nextProps.UI.errors) && (!nextProps.UI.loading)){
-             this.setState({body: ''})
+             this.setState({body: ''});
              this.handleClose();
          }
      }
     render() {
         const {errors} = this.state;
-        const {classes, UI:{loading}} = this.props
+        const {classes, UI:{loading}} = this.props;
         return (
             <Fragment>
                 <ProfileButton onClick={this.handleOpen} tip="Haz un comentario">
@@ -106,11 +107,12 @@ const styles = (customTheme) => ({
 
 Comentario.propTypes = {
     postScream: PropTypes.func.isRequired,
-    loading: PropTypes.object.isRequired
+    UI: PropTypes.object.isRequired
+
 }
 
 const mapStateToProps = (state)=>({
-    loading: state.UI.loading
+    UI: state.UI
 }
 )
 export default connect(mapStateToProps, {postScream})(withStyles(styles)(Comentario))
