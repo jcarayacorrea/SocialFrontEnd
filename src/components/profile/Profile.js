@@ -4,7 +4,7 @@ import withStyles from '@material-ui/core/styles/withStyles';
 import PropTypes from 'prop-types';
 //redux
 import { connect} from 'react-redux';
-import { logoutUser, uploadImage} from '../redux/actions/userActions';
+import { logoutUser, uploadImage} from '../../redux/actions/userActions';
 //Mui
 import { Paper, Typography, Button } from '@material-ui/core';
 import MuiLink from '@material-ui/core/Link';
@@ -17,7 +17,7 @@ import KeyboardReturn from '@material-ui/icons/KeyboardReturn';
 import EditDetails from './EditDetails'
 
 import dayjs from 'dayjs';
-import ProfileButton from '../utils/ProfileButton';
+import ProfileButton from '../../utils/ProfileButton';
 
 const styles = (customTheme)=>({
     ...customTheme.toSpread,
@@ -71,7 +71,7 @@ const styles = (customTheme)=>({
                         <ProfileButton tip="Cerrar sesion" onClick={this.handleLogOut} >
                             <KeyboardReturn color="primary"/>
                         </ProfileButton>   
-                        <EditDetails/> 
+                        <EditDetails btnClassName="button"/>
                 </div>
             </Paper>
         ):(
@@ -111,7 +111,7 @@ const styles = (customTheme)=>({
 const mapStateToProps = (state) =>({
     user: state.user,
     UI: state.UI
-})
+});
 
 const mapActionsToProps = { logoutUser, uploadImage};
 
@@ -120,6 +120,6 @@ Profile.propTypes = {
     uploadImage: PropTypes.func.isRequired,
     user : PropTypes.object.isRequired,
     classes: PropTypes.object.isRequired
-}
+};
 
 export default connect(mapStateToProps, mapActionsToProps)(withStyles(styles)(Profile))

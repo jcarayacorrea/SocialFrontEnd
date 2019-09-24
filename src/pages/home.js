@@ -8,8 +8,8 @@ import {connect} from 'react-redux';
 import {getScreams} from '../redux/actions/dataActions';
 
 //componentes
-import Scream from '../components/Scream'
-import Profile from '../components/Profile';
+import Scream from '../components/screams/Scream'
+import Profile from '../components/profile/Profile';
 
 
 

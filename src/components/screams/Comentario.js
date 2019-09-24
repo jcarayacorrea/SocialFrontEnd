@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react'
 //import {Link} from 'react-router-dom/Link'
 import withStyles from '@material-ui/core/styles/withStyles';
 import PropTypes from 'prop-types';
-import ProfileButton from '../utils/ProfileButton';
+import ProfileButton from '../../utils/ProfileButton';
 
 
 //MUI
@@ -19,21 +19,23 @@ import CloseIcon from '@material-ui/icons/Close';
 
 //Redux
 import {connect } from 'react-redux';
-import { postScream } from '../redux/actions/dataActions';
+import { postScream, clearErrors } from '../../redux/actions/dataActions';
 import { mergeClasses } from '@material-ui/styles';
 
 const styles = (customTheme) => ({
     ...customTheme.toSpread,
     submitButton:{
-        position:'relative'
+        position:'relative',
+        float: 'right',
+        marginTop: 10
     },
     progressSpinner:{
         position:'absolute'
     },
     closeButton:{
         position:'absolute',
-        left:'90%',
-        top:'10%'
+        left:'91%',
+        top:'6%'
     }
 });
 
@@ -94,6 +96,7 @@ const styles = (customTheme) => ({
         this.setState({open:true});
     }
     handleClose = () => {
+         this.props.clearErrors();
         this.setState({open:false, errors:{}});
     }
     handleChange = (event)=>{
@@ -107,6 +110,7 @@ const styles = (customTheme) => ({
 
 Comentario.propTypes = {
     postScream: PropTypes.func.isRequired,
+    clearErrors: PropTypes.func.isRequired,
     UI: PropTypes.object.isRequired
 
 }
@@ -115,4 +119,4 @@ const mapStateToProps = (state)=>({
     UI: state.UI
 }
 )
-export default connect(mapStateToProps, {postScream})(withStyles(styles)(Comentario))
+export default connect(mapStateToProps, {postScream,clearErrors})(withStyles(styles)(Comentario))

@@ -2,11 +2,11 @@ import React, { Component, Fragment } from 'react'
 //import {Link} from 'react-router-dom/Link'
 import withStyles from '@material-ui/core/styles/withStyles';
 import PropTypes from 'prop-types';
-import ProfileButton from '../utils/ProfileButton';
+import ProfileButton from '../../utils/ProfileButton';
 
 //Redux
 import {connect } from 'react-redux';
-import { editUserDetails } from '../redux/actions/userActions';
+import { editUserDetails } from '../../redux/actions/userActions';
 //MUI
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';

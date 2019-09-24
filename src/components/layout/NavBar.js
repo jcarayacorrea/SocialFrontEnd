@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
-import ProfileButton from '../utils/ProfileButton';
+import ProfileButton from '../../utils/ProfileButton';
 //Material - UI
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -14,7 +14,7 @@ import Notifications from '@material-ui/icons/Notifications';
 
 //redux
 import {connect} from 'react-redux';
-import Comentario from "./Comentario";
+import Comentario from "../screams/Comentario";
 
 
 
